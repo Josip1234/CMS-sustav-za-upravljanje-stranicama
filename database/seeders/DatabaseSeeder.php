@@ -21,5 +21,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        //dodavanje registracije seedera za automatsko seedanje baze podataka
+        $this->call([
+            ObicniKorisniciSeeder::class,
+        ]);
     }
 }

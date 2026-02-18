@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        //event javlja da je registriran novi user
         event(new Registered($user));
 
         Auth::login($user);
