@@ -75,5 +75,5 @@ class ObicniKorisniciSeeder extends Seeder
                 'password'=>Hash::make('obicnikorisnik5'),
             ]
         );
-    } //27.01.2026 1:05:12
+    } 
 }

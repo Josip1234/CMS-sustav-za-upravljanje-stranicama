@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         //dodavanje registracije seedera za automatsko seedanje baze podataka
         $this->call([
             ObicniKorisniciSeeder::class,
+            DodatniKorSeeder::class
         ]);
     }
 }

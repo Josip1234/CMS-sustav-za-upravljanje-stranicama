@@ -21,6 +21,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'dbirth',
+        'sex',
+        'utype',
+        'status'
     ];
 
     /**
@@ -40,9 +44,16 @@ class User extends Authenticatable
      */
     protected function casts(): array
     {
+        //datum rođenja se prikazuje kao date, spol treba biti string npr muški ženski,
+        //usertype treba biti string admin, korisnik, status aktivan, neaktivan, 
+        //zabranjen
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'dbirth'=>'date',
+            'sex'=>'string',
+            'utype'=>'string',
+            'status'=>'string'
         ];
     }
 }
