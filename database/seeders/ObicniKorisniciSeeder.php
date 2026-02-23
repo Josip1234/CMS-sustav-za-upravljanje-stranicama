@@ -25,7 +25,7 @@ class ObicniKorisniciSeeder extends Seeder
             //zatim ide zasebni element niza
             [
                 'name'=>$faker->userName,
-                'password'=>Hash::make('obicnikorisnik1'),
+                'password'=>Hash::make('korisnik3'),
             ]
         );
 
@@ -37,7 +37,7 @@ class ObicniKorisniciSeeder extends Seeder
             //zatim ide zasebni element niza
             [
                 'name'=>$faker->userName,
-                'password'=>Hash::make('obicnikorisnik2'),
+                'password'=>Hash::make('korisnik4'),
             ]
         );
 
@@ -49,7 +49,7 @@ class ObicniKorisniciSeeder extends Seeder
             //zatim ide zasebni element niza
             [
                 'name'=>$faker->userName,
-                'password'=>Hash::make('obicnikorisnik3'),
+                'password'=>Hash::make('korisnik5'),
             ]
         );
 
@@ -61,7 +61,7 @@ class ObicniKorisniciSeeder extends Seeder
             //zatim ide zasebni element niza
             [
                 'name'=>$faker->userName,
-                'password'=>Hash::make('obicnikorisnik4'),
+                'password'=>Hash::make('korisnik6'),
             ]
         );
            User::updateOrCreate(
@@ -72,7 +72,7 @@ class ObicniKorisniciSeeder extends Seeder
             //zatim ide zasebni element niza
             [
                 'name'=>$faker->userName,
-                'password'=>Hash::make('obicnikorisnik5'),
+                'password'=>Hash::make('korisnik7'),
             ]
         );
     } 

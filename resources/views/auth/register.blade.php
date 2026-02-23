@@ -4,21 +4,36 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Ime')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email adresa')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+          <!-- Datum rođenja -->
+        <div class="mt-4">
+            <x-input-label for="dbirth" :value="__('Datum rođenja')" />
+            <x-text-input id="dbirth" class="block mt-1 w-full" type="date" name="dbirth" :value="old('dbirth')" required />
+            <x-input-error :messages="$errors->get('dbirth')" class="mt-2" />
+        </div>
+
+             <!-- Odabir spola -->
+        <div class="mt-4">
+            <x-input-label for="sex" :value="__('Spol')" />
+            <x-text-input id="m" type="radio" name="sex" value="m" required />Muški spol
+            <x-text-input id="f" type="radio" name="sex" value="f" /> Ženski spol
+            <x-input-error :messages="$errors->get('sex')" class="mt-2" />
+        </div>
+<!-- 1:34:02 -->
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Šifra')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -30,7 +45,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Potvrda šifre')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
@@ -41,11 +56,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Već ste registrirani?') }}
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __('Registriraj se') }}
             </x-primary-button>
         </div>
     </form>

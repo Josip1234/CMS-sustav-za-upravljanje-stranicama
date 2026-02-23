@@ -33,11 +33,16 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            //datum mora biti prije danas
+            'dbirth'=>['required','date','before:today'],
+            'sex'=>['required','string','in:m,f']
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'dbirth'=> $request->dbirth,
+            'sex'=>$request->sex,
             'password' => Hash::make($request->password),
         ]);
         //event javlja da je registriran novi user

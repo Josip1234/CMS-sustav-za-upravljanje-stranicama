@@ -31,7 +31,7 @@ class DodatniKorSeeder extends Seeder
                 //generiranje random statusa računa aktivan nekativan zabranjen
                 'status'=>$faker->randomElement(['aktivan','neaktivan','zabranjen']),
                 //šifru ne bi trebali generirati random da se možemo prijaviti
-                'password'=>Hash::make('korisnik1'),
+                'password'=>Hash::make('korisnik2'),
             ]
             //27-01-2026 1:26:33
         );
