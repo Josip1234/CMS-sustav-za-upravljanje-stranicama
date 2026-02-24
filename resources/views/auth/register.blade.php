@@ -5,29 +5,31 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Ime')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"  autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email adresa')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"  autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
           <!-- Datum rođenja -->
         <div class="mt-4">
             <x-input-label for="dbirth" :value="__('Datum rođenja')" />
-            <x-text-input id="dbirth" class="block mt-1 w-full" type="date" name="dbirth" :value="old('dbirth')" required />
+            <x-text-input id="dbirth" class="block mt-1 w-full" type="date" name="dbirth" :value="old('dbirth')"  />
             <x-input-error :messages="$errors->get('dbirth')" class="mt-2" />
         </div>
 
              <!-- Odabir spola -->
         <div class="mt-4">
             <x-input-label for="sex" :value="__('Spol')" />
-            <x-text-input id="m" type="radio" name="sex" value="m" required />Muški spol
-            <x-text-input id="f" type="radio" name="sex" value="f" /> Ženski spol
+                
+             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" {{ "checked" }} />Muški spol
+            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')"  /> Ženski spol
+           
             <x-input-error :messages="$errors->get('sex')" class="mt-2" />
         </div>
 <!-- 1:34:02 -->
@@ -38,7 +40,7 @@
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="new-password" />
+                             autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -49,7 +51,7 @@
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation"  autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
