@@ -2,7 +2,8 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Name  trebamo dodati fname i lname ažurirati i seedere i migracije
+        promijeniti name u fname-->
         <div>
             <x-input-label for="name" :value="__('Ime')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"  autofocus autocomplete="name" />
@@ -26,13 +27,21 @@
              <!-- Odabir spola -->
         <div class="mt-4">
             <x-input-label for="sex" :value="__('Spol')" />
-                
-             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" {{ "checked" }} />Muški spol
+            @if(old('sex','m')==='m')
+             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" checked/>Muški spol
             <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')"  /> Ženski spol
+            @elseif(old('sex','m')==='f')
+             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')"/>Muški spol
+            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')" checked /> Ženski spol
+            @else
+            <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" checked/>Muški spol
+            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')"  /> Ženski spol
+            @endif 
+               
            
             <x-input-error :messages="$errors->get('sex')" class="mt-2" />
         </div>
-<!-- 1:34:02 -->
+<!-- 27-01-2026 1:34:02 -->
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Šifra')" />
