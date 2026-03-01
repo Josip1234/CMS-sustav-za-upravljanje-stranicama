@@ -9,6 +9,13 @@
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"  autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
+          <!-- prezime -->
+           <div>
+            <x-input-label for="lastname" :value="__('Prezime')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')"  autofocus autocomplete="lastname" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+        </div>
+
 
         <!-- Email Address -->
         <div class="mt-4">
@@ -41,7 +48,7 @@
            
             <x-input-error :messages="$errors->get('sex')" class="mt-2" />
         </div>
-<!-- 27-01-2026 1:34:02 -->
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Šifra')" />
@@ -53,6 +60,16 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+         <!-- hidden field za običnog korisnika tijekom registracije -->
+          <x-text-input id="hidden" class="block mt-1 w-full"
+                            type="hidden"
+                            name="utype"
+                             value="0" />
+            <!-- hidden field za aktivan račun prilikom registracije -->
+           <x-text-input id="hidden" class="block mt-1 w-full"
+                            type="hidden"
+                            name="status"
+                             value="aktivan" />
 
         <!-- Confirm Password -->
         <div class="mt-4">
