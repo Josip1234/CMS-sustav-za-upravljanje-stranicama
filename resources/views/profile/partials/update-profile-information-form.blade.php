@@ -38,7 +38,7 @@
 
               <div class="mt-4">
             <x-input-label for="sex" :value="__('Spol')" />
-            @if( $user->sex ==='m') <!-- 27.01.2026 1:52:24 -->
+            @if( $user->sex ==='m') 
            
              <x-text-input id="m" type="radio" name="sex" :value="old('sex','m',$user->sex)" checked/>Muški spol
             <x-text-input id="f" type="radio" name="sex" :value="old('sex','f',$user->sex)"  /> Ženski spol
