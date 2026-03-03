@@ -37,6 +37,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="mt-6 flex justify-center">
+                    {{ $users->links() }}
+                </div>
             </div>
         </div>
     </div>

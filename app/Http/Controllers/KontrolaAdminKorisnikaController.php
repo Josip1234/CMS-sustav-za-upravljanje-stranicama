@@ -16,7 +16,8 @@ class KontrolaAdminKorisnikaController extends Controller
         //eager loading - slično kao što radimo u sql-u, 
         //to je jezik koji se koristi u laravelu za dohvat rezultata
         //sortiranje, uređivanje i tako dalje
-        $users=User::orderBy('id')->get();
+        //paginator za prikazivanje 5 po stranici
+        $users=User::orderBy('id')->paginate(5);
         return view('admin.users.index',[
             'users'=>$users,
         ]);
