@@ -7,6 +7,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                        @if(session('status'))
+                            <div class="mb-4 rounded-md bg-green-50 p-4 text-sm text-green-700">
+                                    {{ session('status') }}
+                            </div>
+                        @endif
+                
+            
             <div class="overflow-x-auto">
                 <table class="min-w-full border">
                     <thead>
@@ -27,12 +36,19 @@
                             <tr>
                                 <td class="border px-3 py-2">{{ $u->id }}</td>
                                 <td class="border px-3 py-2">{{ $u->name }}</td>
-                                <td class="border px-3 py-2">{{ $u->lastname }}</td>
+                                <td class="border px-3 py-2">{{ $u->lastname===""?"-":$u->lastname }}</td>
                                 <td class="border px-3 py-2">{{ $u->email }}</td>
-                                <td class="border px-3 py-2">{{ $u->dbirth }}</td>
-                                <td class="border px-3 py-2">{{ $u->sex }}</td>
+                                <td class="border px-3 py-2">{{ $u->dbirth===null?"-":$u->dbirth->format("d.m.Y") }}</td>
+                                <td class="border px-3 py-2">{{ $u->sex==="m"?"Muški":"Ženski" }}</td>
                                 <td class="border px-3 py-2">{{ $u->utype ==="1"?"Administrator":"Korisnik" }}</td>
-                                <td class="border px-3 py-2">{{ $u->status }}</td>
+                                <td class="border px-3 py-2">{{ $u->status ===null?"-": $u->status}}</td>
+                                <td class="border px-3 py-2">
+                                    <!-- prva akcija je za editiranje korisnika -->
+                                <a href="{{ route("admin.users.edit",$u) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 mr-3" title="Uredi">
+                                    <i class="bi bi-pencil icon-edit"></i>
+                                </a>
+                                
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -42,5 +58,7 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </x-app-layout>

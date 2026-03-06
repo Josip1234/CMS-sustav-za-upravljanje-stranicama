@@ -22,4 +22,9 @@ class KontrolaAdminKorisnikaController extends Controller
             'users'=>$users,
         ]);
     }
+    public function edit(Request $request,User $user):View{
+        return view('admin.users.edit',[
+            'user'=>$user,
+        ]);
+    }
 }

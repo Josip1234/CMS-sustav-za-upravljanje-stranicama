@@ -21,4 +21,7 @@ Route::middleware('auth')->group(function () {
 Route::get('admin/users',[KontrolaAdminKorisnikaController::class,'index'])->middleware('auth','administrator')
 ->name('admin.users.index');
 
+Route::get('admin/users/{user}/edit',[KontrolaAdminKorisnikaController::class,'edit'])->name('admin.users.edit');
+Route::put('admin/users/{user}',[KontrolaAdminKorisnikaController::class,'update'])->name('admin.users.update');
+
 require __DIR__.'/auth.php';
