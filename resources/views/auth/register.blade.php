@@ -34,17 +34,16 @@
              <!-- Odabir spola -->
         <div class="mt-4">
             <x-input-label for="sex" :value="__('Spol')" />
-            @if(old('sex','m')==='m')
-             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" checked/>Muški spol
-            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')"  /> Ženski spol
-            @elseif(old('sex','m')==='f')
-             <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')"/>Muški spol
-            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')" checked /> Ženski spol
-            @else
-            <x-text-input id="m" type="radio" name="sex" :value="old('sex','m')" checked/>Muški spol
-            <x-text-input id="f" type="radio" name="sex" :value="old('sex','f')"  /> Ženski spol
-            @endif 
-               
+            
+            <select name="sex" id="sex" class="mt-1 block w-full border-gray-300 rounded-md">>
+                @php  
+                $selected="";
+                if(old('sex','m')==='m') $selected="m";
+                else $selected="f";
+                @endphp 
+                <option value="m" {{ $selected==='m'?"selected":"" }}>Muški</option>
+                <option value="f" {{ $selected==='f'?"selected":"" }}>Ženski</option>
+            </select>
            
             <x-input-error :messages="$errors->get('sex')" class="mt-2" />
         </div>
