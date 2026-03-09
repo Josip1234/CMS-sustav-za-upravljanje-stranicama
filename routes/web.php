@@ -23,5 +23,6 @@ Route::get('admin/users',[KontrolaAdminKorisnikaController::class,'index'])->mid
 
 Route::get('admin/users/{user}/edit',[KontrolaAdminKorisnikaController::class,'edit'])->name('admin.users.edit');
 Route::put('admin/users/{user}',[KontrolaAdminKorisnikaController::class,'update'])->name('admin.users.update');
+Route::delete('admin/users/{user}',[KontrolaAdminKorisnikaController::class,'destroy'])->name('admin.users.destroy');
 
 require __DIR__.'/auth.php';

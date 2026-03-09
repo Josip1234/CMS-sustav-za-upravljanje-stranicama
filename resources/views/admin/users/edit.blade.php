@@ -59,7 +59,7 @@
                         <x-input-label for="utype" value="Tip korisnika"/>
                         <select name="utype" id="utype" class="mt-1 block w-full border-gray-300 rounded-md">
                             {{-- ako je jedinica korisnik je administrator ako je 0 običan korisnik 
-                            to znači automatsko selektiranje ovisno kako ga je izabrao 29-01-2026 51:40--}}
+                            to znači automatsko selektiranje ovisno kako ga je izabrao--}}
                             
                             <option value="1" @selected(old('utype',$user->utype)==='1')>
                                 Administrator
@@ -69,6 +69,24 @@
                             </option>
                         </select>
                         <x-input-error :messages="$errors->get('utype')" class="mt-2"/>
+                    </div>
+                    {{-- status računa  s obzirom da smo rekli da ćemo imati više statusa a nismo enumerirali u bazi koje
+                    statuse biti će tri statusa aktivan, neaktivan i zabranjen.--}}
+                    <div class="mb-6">
+                        <x-input-label for="status" value="Status računa"/>
+                        <select name="status" id="status" class="mt-1 block w-full border-gray-300 rounded-md">
+                            {{-- ako račun nije definiran staviti ćemo da je selektiran nedefiniran račun --}}
+                            <option value="null" @selected(old('status',$user->status)===null)>Nedefiniran</option>
+                            <option value="aktivan" @selected(old('status',$user->status)==='aktivan')>Aktivan</option>
+                            <option value="neaktivan" @selected(old('status',$user->status)==='neaktivan')>Neaktivan</option>
+                            <option value="zabranjen" @selected(old('status',$user->status)==='zabranjen')>Zabranjen</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('status')" class="mt-2"/>
+                    </div>
+                    <div class="flex">
+                        <x-primary-button>
+                            Spremi
+                        </x-primary-button>
                     </div>
                 </form>
     </div>

@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                         @if(session('status'))
                             <div class="mb-4 rounded-md bg-green-50 p-4 text-sm text-green-700">
-                                    {{ session('status') }}
+                                    {{ session('status') }} 
                             </div>
                         @endif
                 
@@ -55,7 +55,25 @@
                                 <a href="{{ route("admin.users.edit",$u) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 mr-3" title="Uredi">
                                     <i class="bi bi-pencil icon-edit"></i>
                                 </a>
-                                
+                                <!-- druga akcija brisanje korisnika 
+                                ukoliko je autorizirani korisnik admin ne može obrisati samoga sebe
+                            delete ikona-->
+                                    @if($u->id !== auth()->id())
+                                    <form action="{{ route('admin.users.destroy',$u) }}" method="post"
+                                    class="inline" onsubmit="return confirm('Jeste li sigurni da želite obrisati ovog korisnika?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="inline-flex items-center text-red-600 hover:text-red-800" 
+                                    title="Obriši">
+                                        <i class="bi bi-trash icon-delete"></i>
+                                    </button>
+                                   </form>
+                                    @else
+                                    <span class="text-gray-400">
+                                        <i class="bi bi-trash icon-delete"></i>
+                                    </span> 
+                                    @endif
+
                                 </td>
                             </tr>
                         @endforeach

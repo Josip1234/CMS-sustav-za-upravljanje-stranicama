@@ -38,7 +38,16 @@ class ProfileUpdateRequest extends FormRequest
             'sex'=>[
                 'required',
                 'in:m,f'
+            ],
+            'utype'=>[
+                'required',
+                'in:0,1'
+            ],
+            'status'=>[
+                'required',
+                'in:aktivan,neaktivan,zabranjen'
             ]
+
         ];
     }
 }
