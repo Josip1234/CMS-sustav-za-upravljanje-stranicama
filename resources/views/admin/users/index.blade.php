@@ -39,7 +39,15 @@
                                 <td class="border px-3 py-2">{{ $u->lastname===""?"-":$u->lastname }}</td>
                                 <td class="border px-3 py-2">{{ $u->email }}</td>
                                 <td class="border px-3 py-2">{{ $u->dbirth===null?"-":$u->dbirth->format("d.m.Y") }}</td>
-                                <td class="border px-3 py-2">{{ $u->sex==="m"?"Muški":"Ženski" }}</td> {{-- treba staviti i uvjet za null da javi crticu --}}
+                                <td class="border px-3 py-2">
+                                @if($u->sex===null)    
+                                 {{ "-" }} 
+                                @elseif($u->sex==="m")
+                                {{ "Muški" }}
+                                @else 
+                                {{ "Ženski" }}
+                                @endif
+                                </td> 
                                 <td class="border px-3 py-2">{{ $u->utype ==="1"?"Administrator":"Korisnik" }}</td>
                                 <td class="border px-3 py-2">{{ $u->status ===null?"-": $u->status}}</td>
                                 <td class="border px-3 py-2">

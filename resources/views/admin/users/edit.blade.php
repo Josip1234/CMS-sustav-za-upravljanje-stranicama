@@ -55,6 +55,7 @@
                     </div>
                     {{-- Tip korisnika --}}
                     <div class="mb-6">
+                       
                         <x-input-label for="utype" value="Tip korisnika"/>
                         <select name="utype" id="utype" class="mt-1 block w-full border-gray-300 rounded-md">
                             {{-- ako je jedinica korisnik je administrator ako je 0 običan korisnik 
